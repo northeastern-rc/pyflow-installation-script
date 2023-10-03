@@ -13,9 +13,9 @@
 
 # This script will git clone the PyFlow repository to the current working directory
 # and build the conda environment in the location you set the PYFLOW_CONDA_DIRECTORY 
-# variable or enter with the submit command. It will also create a helper script 
+# variable or enter after the script name. It will also create a helper script 
 # that can be sourced to setup your PyFlow environment. This script will be saved in 
-# repository directory. This script will set your environment to use PyFlow.
+# repository directory.
 # The SLURM job will create a PyFlow conda directory and will exit if this directory 
 # exists. 
 
