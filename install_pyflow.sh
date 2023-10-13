@@ -53,13 +53,13 @@ echo export SCRATCH=/scratch/$USER >> pyflow_env.sh
 # Uncomment the following sections if you want to have the Gaussian and GAMESS modules are loaded
 # with the helper script and having a /scratch/$USER/src directory created if it does not already
 # exist for GAMESS
-echo '' >> pyflow_env.sh
-echo 'module load gaussian/g16' >> pyflow_env.sh
-echo 'source /work/lopez/g16/bsd/g16.profile' >> pyflow_env.sh
-echo 'module load gamess/2018R1' >> pyflow_env.sh
-echo '' >> pyflow_env.sh
-echo 'if [ ! -d "/scratch/$USER/src" ]; then' >> pyflow_env.sh
-echo '    echo "/scratch/$USER/src has been created"' >> pyflow_env.sh
-echo '    mkdir -p /scratch/$USER/src' >> pyflow_env.sh
-echo 'fi' >> pyflow_env.sh
+#echo '' >> pyflow_env.sh
+#echo 'module load gaussian/g16' >> pyflow_env.sh
+#echo 'source /work/lopez/g16/bsd/g16.profile' >> pyflow_env.sh
+#echo 'module load gamess/2018R1' >> pyflow_env.sh
+#echo '' >> pyflow_env.sh
+#echo 'if [ ! -d "/scratch/$USER/src" ]; then' >> pyflow_env.sh
+#echo '    echo "/scratch/$USER/src has been created"' >> pyflow_env.sh
+#echo '    mkdir -p /scratch/$USER/src' >> pyflow_env.sh
+#echo 'fi' >> pyflow_env.sh
 chmod 755 pyflow_env.sh
