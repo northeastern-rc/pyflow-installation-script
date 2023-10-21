@@ -32,15 +32,15 @@ if [ -d "$PYFLOW_CONDA_DIRECTORY" ]; then
     exit 1
 fi 
 
-mkdir -p $PYFLOW_CONDA_DIRECTORY
+#mkdir -p $PYFLOW_CONDA_DIRECTORY
 #-------------------------------------------------------------------------------------
 
 module load anaconda3/2022.05
-conda config --set channel_priority disabled
+#conda config --set channel_priority disabled
 git clone https://github.com/kuriba/PyFlow.git
 cd PyFlow
 export PYFLOW_SRC=$(pwd)
-conda env create --prefix=$PYFLOW_CONDA_DIRECTORY --file environment.yml
+conda create --prefix=$PYFLOW_CONDA_DIRECTORY --file ../PyFlow.txt
 source activate $PYFLOW_CONDA_DIRECTORY
 pip install -e .
 
