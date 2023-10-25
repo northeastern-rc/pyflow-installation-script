@@ -43,6 +43,8 @@ export PYFLOW_SRC=$(pwd)
 conda create --prefix=$PYFLOW_CONDA_DIRECTORY --file ../PyFlow.txt
 source activate $PYFLOW_CONDA_DIRECTORY
 pip install -e .
+pip install tqdm==4.62.3
+pip install tabulate==0.8.9
 
 touch pyflow_env.sh
 echo '#!/bin/bash' >> pyflow_env.sh
