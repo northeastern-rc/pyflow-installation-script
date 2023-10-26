@@ -32,17 +32,19 @@ if [ -d "$PYFLOW_CONDA_DIRECTORY" ]; then
     exit 1
 fi 
 
-mkdir -p $PYFLOW_CONDA_DIRECTORY
+#mkdir -p $PYFLOW_CONDA_DIRECTORY
 #-------------------------------------------------------------------------------------
 
 module load anaconda3/2022.05
-conda config --set channel_priority disabled
+#conda config --set channel_priority disabled
 git clone https://github.com/kuriba/PyFlow.git
 cd PyFlow
 export PYFLOW_SRC=$(pwd)
-conda env create --prefix=$PYFLOW_CONDA_DIRECTORY --file environment.yml
+conda create --prefix=$PYFLOW_CONDA_DIRECTORY --file ../PyFlow.txt
 source activate $PYFLOW_CONDA_DIRECTORY
 pip install -e .
+pip install tqdm==4.62.3
+pip install tabulate==0.8.9
 
 touch pyflow_env.sh
 echo '#!/bin/bash' >> pyflow_env.sh
@@ -50,4 +52,16 @@ echo module load anaconda3/2022.05 >> pyflow_env.sh
 echo source activate $PYFLOW_CONDA_DIRECTORY >> pyflow_env.sh
 echo export PYFLOW=$PYFLOW_SRC >> pyflow_env.sh
 echo export SCRATCH=/scratch/$USER >> pyflow_env.sh
+# Uncomment the following sections if you want to have the Gaussian and GAMESS modules are loaded
+# with the helper script and having a /scratch/$USER/src directory created if it does not already
+# exist for GAMESS
+#echo '' >> pyflow_env.sh
+#echo 'module load gaussian/g16' >> pyflow_env.sh
+#echo 'source /work/lopez/g16/bsd/g16.profile' >> pyflow_env.sh
+#echo 'module load gamess/2018R1' >> pyflow_env.sh
+#echo '' >> pyflow_env.sh
+#echo 'if [ ! -d "/scratch/$USER/src" ]; then' >> pyflow_env.sh
+#echo '    echo "/scratch/$USER/src has been created"' >> pyflow_env.sh
+#echo '    mkdir -p /scratch/$USER/src' >> pyflow_env.sh
+#echo 'fi' >> pyflow_env.sh
 chmod 755 pyflow_env.sh
