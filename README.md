@@ -37,20 +37,21 @@ If you encounter issues during installation, check for the following:
   source ~/.bashrc
   ```
 
-### **2. Existing Conda Environment Conflicts**
-- If you're trying to install PyFlow in an existing conda environment, it may cause issues. Instead, create a fresh environment.
-
-### **3. Conflicts with `.local` Directory**
+### **2. Conflicts with `.local` Directory**
 - If you have packages stored in `.local`, renaming it may help resolve conflicts:
   
   ```bash
   mv ~/.local ~/.local-off  # Rename .local to .local-off
   ```
 
-### **4. Resolve Conda Version Conflicts**
+### **3. Resolve Conda Version Conflicts**
 - Running a cleanup command can remove conflicting dependencies:
   
   ```bash
   conda clean --all
   ```
+  
+### **4. Existing Conda Environment Conflicts**
+- If you are installing PyFlow in an existing Conda environment and encounter errors, please check for package conflicts.
+ 
   If issues persist, please contact the **Research Computing (RC) team** for further assistance.
