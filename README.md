@@ -24,3 +24,29 @@ The script can be sourced in your srun job or sbatch script
 ```{bash}
 source pyflow_env.sh
 ```
+
+## Troubleshooting Common Installation Issues
+
+If you encounter issues during installation, check for the following:
+
+### **1. Conda Initialization Conflicts**
+- If you have a `conda init` statement in your `.bashrc`, remove it:
+  ```bash
+  nano ~/.bashrc  # Remove or comment out 'conda init' lines
+  source ~/.bashrc
+  ```
+
+### **2. Existing Conda Environment Conflicts**
+- If you're trying to install PyFlow in an existing conda environment, it may cause issues. Instead, create a fresh environment.
+
+### **3. Conflicts with `.local` Directory**
+- If you have packages stored in `.local`, renaming it may help resolve conflicts:
+  ```bash
+  mv ~/.local ~/.local-off  # Rename .local to .local-off
+  ```
+
+### **4. Resolve Conda Version Conflicts**
+- Running a cleanup command can remove conflicting dependencies:
+  ```bash
+  conda clean --all
+  ```
