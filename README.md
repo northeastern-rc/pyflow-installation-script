@@ -31,6 +31,7 @@ If you encounter issues during installation, check for the following:
 
 ### **1. Conda Initialization Conflicts**
 - If you have a `conda init` statement in your `.bashrc`, remove it:
+  
   ```bash
   nano ~/.bashrc  # Remove or comment out 'conda init' lines
   source ~/.bashrc
@@ -41,12 +42,16 @@ If you encounter issues during installation, check for the following:
 
 ### **3. Conflicts with `.local` Directory**
 - If you have packages stored in `.local`, renaming it may help resolve conflicts:
+  
   ```bash
   mv ~/.local ~/.local-off  # Rename .local to .local-off
   ```
 
 ### **4. Resolve Conda Version Conflicts**
 - Running a cleanup command can remove conflicting dependencies:
+  
   ```bash
   conda clean --all
   ```
+  If issues persist, please contact the **Research Computing (RC) team** for further assistance.
+```
